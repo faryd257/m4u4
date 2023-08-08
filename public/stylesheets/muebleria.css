@@ -2,6 +2,7 @@ body {
     background: url(../images/fondo.jpg)no-repeat;
     background-size: cover;
     width: 99%;
+    color:#efefef;
 }
 
 
@@ -24,8 +25,11 @@ h2 {
     color: white;
 }
 
-.parr{
+.parrr{
     font-family: 'Open Sans', sans-serif; 
+    background-color: rgba(28, 24, 24, 0.5);
+    padding: 10px;
+    display: inline-block;
     
 
 }
@@ -45,7 +49,7 @@ h2 {
 }
 
 .lista-novedades li a {
-    background-color: maroon;
+    background-color: rgba(28, 24, 24, 0.5);
     font-family: 'Alfa Slab One', cursive;
     text-decoration: none;
     font-size: 1.2rem;
@@ -99,8 +103,8 @@ h2 {
 
 .testimonio {
     text-align: center;
-
-    padding: 80px ;
+    
+    padding: 79px ;
 
 
 }
@@ -117,4 +121,17 @@ h2 {
 
 }
 
-.incc{color: #efefef;}
+.parr{
+    font-family: 'Alfa Slab One', cursive;
+}
+
+.negro{
+
+    color: black;
+}
+
+.prueba{font-family: 'Open Sans', sans-serif; }
+
+.t{
+    font-family: 'Alfa Slab One', cursive;
+     padding-left: 10px;}
