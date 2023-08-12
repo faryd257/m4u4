@@ -4,7 +4,7 @@
         <div class="col-lg-3 offset-lg-2">
 
             <h1>SuPlacard</h1>
-            <p ><span class="parrr">dedicada a la creación e instalación de cocinas, placares y vestidores.<br>
+            <p><span class="parrr">dedicada a la creación e instalación de cocinas, placares y vestidores.<br>
                     La fábrica de 2.200 m2 cubiertos, equipada con maquinarias de última tecnología, abastece para su
                     comodidad, a los locales propios de atención en la zona de Floresta, Belgrano, Martinez, Castelar y
                     La Tablada, así como una gran red de distribuidores en todo el país.</span></p>
@@ -18,30 +18,34 @@
     <div id="novedades" class="col-md-5 offset-md-2 py-3">
 
         <h2 class="tt"><strong>NOVEDADES</strong></h2>
-
+{{#each novedades}}
         <ul class="lista-novedades">
 
-            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="images/1685216047124.jpg">
-                    Diseño 1</a></li>
-
+            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal{{id}}"><img src="images/1685216047124.jpg">
+                 {{titulo}}</a></li>
+{{/each}}
         </ul>
 
     </div><!--cierra novedades --><!--inicio modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    {{#each novedades}}
+   <div class="modal fade" id="exampleModal{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Placard</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{titulo}}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body negro">
-                    <h3>Frente 2 puertas</h3>
-                    <p>Color helsinki</p>
+                    <h3>{{subtitulo}}</h3>
+                    <p>{{cuerpo}}</p>
                 </div>
 
             </div>
         </div>
     </div>
+
+    {{/each}}
     <!--FIN MODAL -->
 
 
@@ -130,7 +134,8 @@
         <img src="images/TABLADA-6.jpg" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title parr">NOSOTROS</h5>
-            <p class="card-text prueba">Partiendo de su idea le brindamos nuestros conocimientos, nuestra tecnología y lo
+            <p class="card-text prueba">Partiendo de su idea le brindamos nuestros conocimientos, nuestra tecnología y
+                lo
                 más importante, el material humano para que juntos lleguemos a la concreción de lo que usted
                 buscaba: confort, calidad y costo.<br>
 

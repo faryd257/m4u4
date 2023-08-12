@@ -1,3 +1,4 @@
+
 body {
     background: url(../images/fondo.jpg)no-repeat;
     background-size: cover;
@@ -87,7 +88,7 @@ h2 {
     opacity: 1;
 }
 
-.historia{color: white;
+.historia{background-color: #efefef;
 
 }
 
@@ -135,3 +136,5 @@ h2 {
 .t{
     font-family: 'Alfa Slab One', cursive;
      padding-left: 10px;}
+
+     .c{color: wheat;}
