@@ -50,7 +50,7 @@ h2 {
 }
 
 .lista-novedades li a {
-    background-color: rgba(28, 24, 24, 0.5);
+    background-color: rgb(5, 2, 0);
     font-family: 'Alfa Slab One', cursive;
     text-decoration: none;
     font-size: 1.2rem;
@@ -95,7 +95,7 @@ h2 {
 
 .testimonios {
 
-    color: black;
+    
     background: url(../images/33.jpg)no-repeat;
     background-size: cover;
 
