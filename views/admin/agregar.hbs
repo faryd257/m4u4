@@ -6,7 +6,7 @@
 
             <h4>Agregar una nueva novedad</h4>
 
-            <form action="/admin/novedades/agregar" method="post">
+            <form action="/admin/novedades/agregar" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
 
@@ -19,6 +19,13 @@
                     <textarea type="text" class="form-control" placeholder="Subtitulo" name="subtitulo"></textarea>
 
                 </div>
+                
+                <div class="form-group">
+
+                    <label>Imagen: <input type="file" class="form-control"
+                     name="imagen" id="imagen" /></label>
+
+                </div>
 
                 <div class="form-group">
 
@@ -29,9 +36,9 @@
                 <button type="submit" class="btn btn-primary">Guardar</button>
 
             </form>
-{{#if error}}
-<p>{{message}}</p>
-{{/if}}
+            {{#if error}}
+            <p>{{message}}</p>
+            {{/if}}
         </div>
 
     </div>
