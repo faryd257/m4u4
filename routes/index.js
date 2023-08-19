@@ -11,7 +11,7 @@ novedades = novedades.splice(0, 5) // seleccionamos los primeros 5 elementos del
 
   novedades = novedades.map(novedad => {
     if (novedad.img_id) {
-      const imagen = cloudinary.image(novedad.img_id, {
+      const imagen = cloudinary.url(novedad.img_id, {
         width: 460,
         crop: 'fill'
       });

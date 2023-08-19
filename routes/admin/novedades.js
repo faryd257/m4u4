@@ -16,13 +16,13 @@ router.get('/', async function (req, res, next) {
     if (novedad.img_id) {
 
       const imagen = cloudinary.image(novedad.img_id, {
-        width: 80,
-        height: 80,
+        width: 50,
+        height: 50,
         crop: 'fill'
       });
       return {
         ...novedad, //titulo, subti y cuerpo
-        imagen, // imagen
+        imagen // imagen
       }
 
     } else {
@@ -100,7 +100,7 @@ router.post('/agregar', async (req, res, next) => {
 
     });
   }
-});
+})
 
 
 router.get('/modificar/:id', async (req, res, next) => {
