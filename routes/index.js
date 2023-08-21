@@ -23,7 +23,7 @@ novedades = novedades.splice(0, 5) // seleccionamos los primeros 5 elementos del
       return {
 
         ...novedad, //titulo, subti y cuerpo
-        imagen: '/images/33.jpg'// nada
+        imagen: '/images/qqqq.png'// nada
       }
     }
   });

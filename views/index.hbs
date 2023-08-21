@@ -3,7 +3,7 @@
 
         <div class="col-lg-3 offset-lg-2">
 
-            <h1>SuPlacard</h1>
+            <h1 class="ti">SuPlacard</h1>
             <p><span class="parrr">dedicada a la creación e instalación de cocinas, placares y vestidores.<br>
                     La fábrica de 2.200 m2 cubiertos, equipada con maquinarias de última tecnología, abastece para su
                     comodidad, a los locales propios de atención en la zona de Floresta, Belgrano, Martinez, Castelar y
@@ -17,23 +17,24 @@
 
     <div id="novedades" class="col-md-5 offset-md-2 py-3">
 
-        <h2 class="tt"><strong>NOVEDADES</strong></h2>
-{{#each novedades}}
+        <h2 class="ti"><strong>NOVEDADES</strong></h2>
+        {{#each novedades}}
         <ul class="lista-novedades">
 
             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal{{id}}"><img src="{{imagen}}">
-                 {{titulo}}</a></li>
-{{/each}}
+                    {{titulo}}</a></li>
+            {{/each}}
         </ul>
 
     </div><!--cierra novedades --><!--inicio modal -->
 
     {{#each novedades}}
-   <div class="modal fade" id="exampleModal{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{titulo}}</h1>
+                    <h1 class="modal-title negro fs-5" id="exampleModalLabel">{{titulo}}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body negro">
@@ -149,12 +150,12 @@
                 comienza cuando usted llega, escuchamos lo que necesita, lo asesoramos y juntos armamos su
                 proyecto.<br>
             </p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+            <p class="card-text"><small class="text-body-secondary"></small></p>
         </div>
     </div>
     <!--fin NOSOTROS -->
     <!--INICIO mapa mas formulario -->
-    <div id="conocenos" class="row py-4">
+    <div id="contactanos" class="row py-4">
         <div class="col-md-4 offset-md-2">
 
             <h2>Visitanos</h2>
@@ -206,6 +207,49 @@
             <p>{{message}}</p>
         </div>
 
-    </div> <!-- cierra div con id conocemos-->
 
+        <h2>LOCALES</h2>
+        <div><!-- Vertically centered modal -->
+            <div id="locales" class="modal-dialog modal-dialog-centered ll">
+                <h3> Local en Belgrano </h3>
+                <p>Belgrano Av. Forest 1184 - C1427CEV -
+                    Ciudad de Buenos Aires
+                    Teléfono: 4554-1300 / 9100
+                    Lunes a Sábados de 10 a 20 hs.
+                    Domingos cerrado.</p>
+            </div>
+
+            <!-- Vertically centered scrollable modal -->
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ll">
+                <h3>Local en Floresta</h3>
+                <p>Mariano Acosta 951 - C1407KBS -
+                    Ciudad de Buenos Aires
+                    Teléfono: +54 9 11 5994-4700
+                    Lunes a Sábados de 10 a 20 hs.
+                    Domingos cerrado.</p>
+
+
+            </div>
+
+
+            <div class="modal-dialog modal-dialog-centered ll">
+                <h3>Local en Tablada</h3>
+                <p>Agüero 31 (alt. Av. Crovara 1900)
+                    Tablada
+                    Teléfono: 4655-4736
+                    Lunes a Viernes de 8 a 12 hs y de 13 a 17 hs.
+                    Domingos cerrado.</p>
+            </div>
+
+           <div class="modal-dialog modal-dialog-centered ll">
+                <h3>Local en Castelar</h3>
+                <p>Lavalleja 28, Castelar (av rivadavia 18600)
+                    castelar
+                    Teléfono: 4655-8888
+                    Lunes a Viernes de 8 a 12 hs y de 13 a 17 hs.
+                    Domingos cerrado.</p>
+            </div>
+
+        </div>
+    </div> <!-- cierra div con id conocemos-->
     <!--fin NOSOTROS -->

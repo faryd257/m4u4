@@ -10,8 +10,14 @@ const destroy = util.promisify(cloudinary.uploader.destroy);
 /* GET NOVEDADES PAGINA*/
 router.get('/', async function (req, res, next) {
 
-  var novedades = await novedadesModel.getnovedades();
+  //var novedades = await novedadesModel.getnovedades();
 
+  var novedades
+  if (req.query.q === undefined) {
+    novedades = await novedadesModel.getnovedades();
+  } else {
+    novedades = await novedadesModel.buscarNovedades(req.query.q);
+  }
   novedades = novedades.map(novedad => {
     if (novedad.img_id) {
 
@@ -31,14 +37,16 @@ router.get('/', async function (req, res, next) {
 
         ...novedad, //titulo, subti y cuerpo
         imagen: ''// nada
-      }
+      };
     }
   });
 
   res.render('admin/novedades', {
     layout: 'admin/layout',
     persona: req.session.nombre,
-    novedades
+    novedades,
+    is_search: req.query.q !== undefined,
+    q: req.query.q
   });
 });
 
@@ -47,9 +55,9 @@ router.get('/', async function (req, res, next) {
 router.get('/eliminar/:id', async (req, res, next) => {
   const id = req.params.id; //2
   let novedad = await novedadesModel.getNovedadById(id);
-if (novedad.img_id) {
-await (destroy (novedad.img_id));
-}
+  if (novedad.img_id) {
+    await (destroy(novedad.img_id));
+  }
 
 
   await novedadesModel.deleteNovedadesById(id);
@@ -76,8 +84,9 @@ router.post('/agregar', async (req, res, next) => {
     }
 
     //console.log(req.body)
-    if (req.body.titulo != "" && req.body.subtitulo != "" && req.body.cuerpo !=
-      "") {
+    if (req.body.titulo != "" &&
+      req.body.subtitulo != "" &&
+      req.body.cuerpo != "") {
       await novedadesModel.insertNovedad({
         ...req.body, // spread
         img_id
@@ -135,27 +144,26 @@ router.post('/modificar', async (req, res, next) => {
       await (destroy(req.body.img_original));
     }
 
-      // console.log(req.body.id); // para ver si trae id
-      var obj = {
-        titulo: req.body.titulo,
-        subtitulo: req.body.subtitulo,
-        cuerpo: req.body.cuerpo,
-        img_id
-      }
+    // console.log(req.body.id); // para ver si trae id
+    var obj = {
+      titulo: req.body.titulo,
+      subtitulo: req.body.subtitulo,
+      cuerpo: req.body.cuerpo,
+      img_id
+    }
 
-      /* console.log(obj) // para ver si trae los datos */
-      console.log(req.body.id); // para ver si trae id
-      await novedadesModel.modificarNovedadById(obj, req.body.id);
-      res.redirect('/admin/novedades');
-    } catch (error) {
-      console.log(error)
-      res.render('admin/modificar', {
-
-        layout: 'admin/layout',
-        error: true,
-        message: 'No se modifico la novedad'
-      })
-    } // cierro catch
-  }); // cierro el post
+    /* console.log(obj) // para ver si trae los datos */
+    console.log(req.body.id); // para ver si trae id
+    await novedadesModel.modificarNovedadById(obj, req.body.id);
+    res.redirect('/admin/novedades');
+  } catch (error) {
+    console.log(error)
+    res.render('admin/modificar', {
+      layout: 'admin/layout',
+      error: true,
+      message: 'No se modifico la novedad'
+    })
+  } // cierro catch
+}); // cierro el post
 
 module.exports = router;
